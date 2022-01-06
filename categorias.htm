@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<title>Categorias</title>
+<link rel="stylesheet" href="css/w3.css">
+<script src="data/appml.js"></script>
+<script src="js/menu.js"></script>
+</head>
+<body>
+<div appml-include-html="incluso/inc_header.htm"></div>
+
+<div class="w3-container w3-content">
+<h1>Categorias</h1>
+<div id="Form01" class="w3-container w3-light-grey w3-padding-large w3-margin-bottom" appml-data="data/appml.php?model=model_form/model_categoriesform" appml-controller="myFormController" style="display:none;">
+  <div appml-include-html="incluso/inc_formcommands.htm"></div>
+  <p>
+    <label>Categoria:</label>
+    <input id="Nomecat" class="w3-input w3-border">
+  </p>
+  <p>
+    <label>Descrição:</label>
+    <input id="Descricao" class="w3-input w3-border">
+  </p>
+</div>
+
+<div appml-data="data/appml.php?model=model_list/model_categorieslist">
+<div appml-include-html="incluso/inc_listcommands_nofilter.htm"></div>
+<table class="w3-table-all">
+  <tr>
+    <th></th>
+    <th>Categoria</th>
+    <th>Descrição</th>
+  </tr>
+  <tr appml-repeat="records">
+    <td style="cursor:pointer" onclick="appml('Form01').run({{IDcat}})">&#9998;</td>
+    <td>{{Nomecat}}</td>
+    <td>{{Descricao}}</td>
+  </tr>
+</table>
+</div>
+</div>
+
+<script>
+function myFormController($appml) {
+  if ($appml.message == "ready") {return -1;}
+  if ($appml.message == "loaded") {
+    document.getElementById("Form01").style.display = "";
+  }
+}
+</script>
+<div appml-include-html="incluso/inc_footer.htm"></div>
+
+<script>
+function versenha(y) {
+y.classList.toggle("fa-eye-slash");
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+</body>
+</html>

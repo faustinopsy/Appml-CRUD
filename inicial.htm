@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<title>Inicial</title>
+<link rel="stylesheet" href="css/w3.css">
+<script src="data/appml.js"></script>
+<script src="js/menu.js"></script>
+</head>
+<body>
+<div appml-include-html="incluso/inc_header.htm"></div>
+
+<div class="w3-container w3-content">
+<h1>Inicial</h1>
+
+<div appml-include-html="incluso/inc_footer.htm"></div>
+
+</div>
+<script>
+function versenha(y) {
+y.classList.toggle("fa-eye-slash");
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+</body>
+</html>
